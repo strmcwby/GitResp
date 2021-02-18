@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--使用util标签完成list集合属性注入提取-->
+
+    <util:list id="bookList">
+        <value>百年孤独</value>
+        <value>城市发展史</value>
+        <value>美国大城市的死与生</value>
+    </util:list>
+
+    <!--使用，     prototype为多实例-->
+    <bean id="book" class="com.guigu.spring5.collectiontype.Book" scope="prototype">
+        <property name="list" ref="bookList"/>
+    </bean>
+
+</beans>
